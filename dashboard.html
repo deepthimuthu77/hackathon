@@ -1,0 +1,97 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SkillSwap Dashboard</title>
+        <link rel="stylesheet" href="styles/general.css">
+        <link rel="stylesheet" href="styles/dashboard.css">
+        <link rel="stylesheet" href="styles/sidebar.css">
+        <link rel="stylesheet" href="styles/navbar.css">
+        <script defer src="scripts/theme.js"></script>
+        <script defer src="scripts/sidebar.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    </head>
+    <body>
+        <div class="dashboard-container">
+            <aside class="sidebar">
+                <div class="sidebar-header">
+                    <div class="logo" id="sidebar-toggle">
+                        <img src="assets/favicon.svg" alt="SkillSwap Logo">
+                        <span class="site-name">SkillSwap</span>
+                    </div>
+                </div>
+                <ul class="menu">
+                    <ul class="nav-menu">
+                <li class="nav-item active">
+                    <a href="dashboard.html" class="nav-link">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="explore.html" class="nav-link">
+                        <i class="fas fa-search"></i>
+                        <span>Explore</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>Messages</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-bookmark"></i>
+                        <span>Saved</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+                </ul>
+            </aside>
+
+            <main class="main-content">
+                <header class="topbar">
+                    <div class="profile">👤 Profile</div>
+                    <button id="theme-toggle">Toggle Theme</button>
+                </header>
+                
+                <section class="content">
+                    <div class="welcome-section">
+                        <h2>Hey, [User] 👋</h2>
+                        <p>Ready to learn and share today? Here's what's happening:</p>
+                    </div>
+                    
+                    <div class="quick-actions">
+                        <button>Post a Skill Swap</button>
+                        <button>Find a Mentor</button>
+                        <button>Explore Skills</button>
+                        <button>Start a Chat</button>
+                    </div>
+
+                    <div class="content-grid">
+                        <div class="skills-recommendation">
+                            <h3>🔍 Recommended for You</h3>
+                            <div class="skill-card">Python Coaching - Available</div>
+                            <div class="skill-card">Graphic Design Learners Wanted</div>
+                            <div class="skill-card">Join a UI/UX Learning Group</div>
+                        </div>
+
+                        <div class="recent-activity">
+                            <h3>⭐ Recent Activity</h3>
+                            <p>You have 3 new messages</p>
+                            <p>2 people viewed your profile</p>
+                        </div>
+                    </div>          
+                </section>
+            </main>
+        </div>
+
+    </body>
+    </html>

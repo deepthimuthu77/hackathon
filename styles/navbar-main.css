@@ -1,0 +1,36 @@
+.logo {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  top: 12px;
+  left: 150px;
+}
+
+.logo img {
+  height: 65px;
+}
+
+.site-name {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #f8f9fa;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #ffcc00;
+}

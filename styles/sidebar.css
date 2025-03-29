@@ -1,0 +1,119 @@
+.sidebar {
+    width: 260px;
+    background: var(--secondary-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    position: fixed;
+    height: 100%;
+    left: 0;
+    top: 0;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.sidebar.collapsed {
+    width: 80px;
+    align-items: center;
+}
+
+.sidebar.collapsed .logo .site-name {
+    display: none;
+}
+
+.sidebar.collapsed .menu li {
+    justify-content: center;
+    padding: 14px 0;
+}
+
+/* Sidebar Header */
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.logo img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+/* Sidebar Toggle Button */
+.toggle-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    font-size: 24px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Sidebar Menu */
+.menu {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.menu li {
+    padding: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.menu li:hover {
+    transform: translateX(5px);
+    background-color: var(--hover-bg);
+}
+
+.sidebar.collapsed .menu li:hover {
+    transform: scale(1.1);
+}
+
+.menu .active {
+    background-color: var(--accent-color);
+    position: relative;
+}
+
+.menu .active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--accent-color);
+    border-radius: 0 4px 4px 0;
+}
+
+.menu-text {
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.menu-text.hidden {
+    opacity: 0;
+    visibility: hidden;
+    width: 0;
+    position: absolute;
+}
+
+.menu li i {
+    min-width: 24px;
+    text-align: center;
+}

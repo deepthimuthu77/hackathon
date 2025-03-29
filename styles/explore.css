@@ -1,0 +1,214 @@
+/* Root Variables */
+:root {
+    --primary-color: #1e293b;
+    --secondary-color: #0f172a;
+    --accent-color: #3b82f6;
+    --text-color: #ffffff;
+    --bg-color: #f1f5f9;
+    --card-bg: #ffffff;
+    --hover-bg: #334155;
+    --shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    --border-radius: 12px;
+}
+
+/* Reset & General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--primary-color);
+    display: flex;
+}
+
+/* Dashboard Layout */
+.dashboard-container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    margin-left: 260px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    transition: margin-left 0.3s ease-in-out;
+}
+
+.main-content.expanded {
+    margin-left: 80px;
+}
+
+/* Topbar */
+.topbar {
+    background: var(--secondary-color);
+    color: var(--text-color);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow);
+    border-radius: var(--border-radius);
+}
+
+/* Profile Section */
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.profile:hover {
+    color: var(--accent-color);
+}
+
+/* Content */
+.content {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Welcome Section */
+.welcome-section {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+/* Quick Actions */
+.quick-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.quick-actions button {
+    background: var(--accent-color);
+    color: var(--text-color);
+    border: none;
+    padding: 12px 18px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background 0.3s;
+    font-weight: bold;
+}
+
+.quick-actions button:hover {
+    background: #2563eb;
+}
+
+/* Content Grid */
+.content-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Skill Recommendations & Recent Activity */
+.skills-recommendation,
+.recent-activity {
+    background: var(--card-bg);
+    padding: 18px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    width: 100%;
+}
+
+.content-grid h3 {
+    margin-bottom: 5px;
+}
+
+/* Skill Cards */
+.skill-card {
+    background: #e2e8f0;
+    padding: 12px;
+    border-radius: 8px;
+    margin-top: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.skill-card:hover {
+    background: #cbd5e1;
+}
+
+/* Recent Activity */
+.recent-activity p {
+    padding: 6px 0;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.recent-activity p:hover {
+    color: var(--accent-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .dashboard-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: 60px;
+        flex-direction: row;
+        padding: 0 10px;
+        justify-content: space-between;
+    }
+
+    .sidebar-header {
+        margin-bottom: 0;
+        width: auto;
+    }
+    
+    .menu {
+        flex-direction: row;
+        gap: 5px;
+    }
+    
+    .menu li {
+        padding: 10px 12px;
+    }
+    
+    .menu-text {
+        display: none;
+    }
+    
+    .sidebar.collapsed {
+        width: 100%;
+    }
+    
+    .main-content {
+        margin-left: 0;
+        margin-bottom: 60px;
+    }
+}
+
+/* Responsive Grid Layout */
+@media (min-width: 768px) {
+    .content-grid {
+        flex-direction: row;
+    }
+
+    .skills-recommendation,
+    .recent-activity {
+        width: 48%;
+    }
+}   
