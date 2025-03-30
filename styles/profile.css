@@ -1,0 +1,241 @@
+/* Root Variables */
+:root {
+    --primary: #2563eb;
+    --secondary: #1e40af;
+    --light: #f8fafc;
+    --dark: #1e293b;
+    --gray: #64748b;
+    --bg-light: #f1f5f9;
+    --card-bg: white;
+    --sidebar-bg: #0f172a;
+    --sidebar-text: #cbd5e1;
+    --sidebar-active: #2563eb;
+    --shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    --radius: 10px;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-light);
+    color: var(--dark);
+    margin: 0;
+    display: flex;
+    overflow-x: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 230px;
+    background: var(--sidebar-bg);
+    color: var(--sidebar-text);
+    height: 100vh;
+    padding: 1rem;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--gray);
+}
+
+.logo {
+    width: 35px;
+    height: 35px;
+}
+
+.sidebar-nav {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-item {
+    color: var(--sidebar-text);
+    text-decoration: none;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: var(--radius);
+    transition: 0.3s;
+}
+
+.nav-item:hover, .nav-item.active {
+    background: var(--sidebar-active);
+    color: white;
+}
+
+/* Main Content */
+.main-content {
+    padding: 2rem;
+    width: calc(100% - 250px);
+    max-width: 100%;
+    margin-left: auto;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+.topbar {
+    background-color: #0f172a;
+    padding: 5px;
+    display: flex;
+    margin: 3px;
+    left: 450px;
+    right: 20px;
+}
+
+/* Profile Container */
+.profile-container {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    padding-left: 50px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: left;
+    max-width: 100%;
+}
+
+.profile-pic {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 3px solid var(--primary);
+}
+
+.profile-details {
+    text-align: left;
+    margin-left: 10px;
+}
+
+.profile-name {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.profile-location {
+    font-size: 0.85rem;
+    color: var(--gray);
+    margin: 0;
+}
+
+.profile-stats {
+    font-size: 0.85rem;
+    color: var(--gray);
+}
+
+/* Buttons */
+.profile-actions {
+    position: fixed;
+    display: flex;
+    gap: 10px;
+    justify-content: right;
+    right: 150px;
+}
+
+.btn {
+    padding: 6px 12px;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: 0.3s ease-in-out;
+}
+
+.follow-btn {
+    background-color: var(--primary);
+    color: white;
+}
+
+.message-btn {
+    background-color: var(--secondary);
+    color: white;
+}
+
+.edit-profile-btn {
+    background-color: #22c55e;
+    color: white;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+
+/* Bio-data */
+.bio-data{
+    margin: 20px 10px 10px 10px;
+    font-size: 15px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Gallery */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 1.5rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    max-width: 100%;
+}
+
+
+/* Skills Section - Adjusted for proper sizing */
+.skills-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    flex-wrap: wrap;
+    max-width: 100%;
+}
+
+.skill-column {
+    width: 30%;
+    background: var(--bg-light);
+    padding: 1rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    text-align: center;
+    min-width: 280px;
+    box-sizing: border-box;
+}
+
+.skill-column h2 {
+    font-size: 1.2rem;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+}
+
+.skill-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.skill-list li {
+    background: var(--light);
+    padding: 8px;
+    margin-bottom: 5px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}   

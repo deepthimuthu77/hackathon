@@ -1,21 +1,20 @@
-explore.html
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Explore Skills - SkillSwap</title>
+    <title>Messages - SkillSwap</title>
     <link rel="stylesheet" href="styles/general.css">
     <link rel="stylesheet" href="styles/dashboard.css">
     <link rel="stylesheet" href="styles/sidebar.css">
     <link rel="stylesheet" href="styles/navbar.css">
-    <link rel="stylesheet" href="styles/explore.css"> <!-- Link to the new explore.css -->
+    <link rel="stylesheet" href="styles/message.css"> <!-- New messages.css -->
     <script defer src="scripts/theme.js"></script>
     <script defer src="scripts/sidebar.js"></script>
+    <script defer src="scripts/message.js"></script> <!-- Chat script -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
-<body>
+<body>      
     <div class="dashboard-container">
         <aside class="sidebar">
             <div class="sidebar-header">
@@ -32,14 +31,14 @@ explore.html
                             <span>Home</span>
                         </a>
                     </li>
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a href="explore.html" class="nav-link">
                             <i class="fas fa-search"></i>
                             <span>Explore</span>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a href="message.html" class="nav-link">
+                    <li class="nav-item active">
+                        <a href="messages.html" class="nav-link">
                             <i class="fas fa-envelope"></i>
                             <span>Messages</span>
                         </a>
@@ -68,27 +67,49 @@ explore.html
                 <button id="theme-toggle">Toggle Theme</button>
             </header>
             
-            <section class="content">
-                <div class="welcome-section">
-                    <h2>Explore Skills 🔍</h2>
-                    <p>Discover new skills and opportunities to learn!</p>
-                </div>
+            <section class="chat-container">
+                <aside class="chat-sidebar">
+                    <div class="chat-search">
+                        <input type="text" placeholder="Search conversations...">
+                    </div>
+                    <ul class="chat-list">
+                        <li class="chat-item active">
+                            <span class="username">John Doe</span>
+                            <p class="last-message">Hey, are you free for a quick call?</p>
+                            <span class="timestamp">2 min ago</span>
+                        </li>
+                        <li class="chat-item">
+                            <span class="username">Jane Smith</span>
+                            <p class="last-message">Thanks for the help!</p>
+                            <span class="timestamp">1 hour ago</span>
+                        </li>
+                    </ul>
+                </aside>
                 
-                <div class="search-bar">
-                    <input type="text" placeholder="Search for skills or mentors...">
-                    <button>Search</button>
-                </div>
-
-                <div class="skills-list">
-                    <h3>Available Skills</h3>
-                    <div class="skill-card">Web Development - Join a Workshop</div>
-                    <div class="skill-card">Data Science - Find a Mentor</div>
-                    <div class="skill-card">Digital Marketing - Online Course</div>
-                    <div class="skill-card">Photography - Skill Swap Event</div>
+                <div class="chat-window">
+                    <header class="chat-header">
+                        <h2>John Doe</h2>
+                        <span class="status">Online</span>
+                    </header>
+                    <div class="messages">
+                        <div class="message received">
+                            <span class="sender">John Doe</span>
+                            <p class="text">Hey, are you free for a quick call?</p>
+                            <span class="time">2 min ago</span>
+                        </div>
+                        <div class="message sent">
+                            <span class="sender">You</span>
+                            <p class="text">Sure! Let me know when.</p>
+                            <span class="time">Just now</span>
+                        </div>
+                    </div>
+                    <div class="input-area">
+                        <input type="text" placeholder="Type a message..." class="message-input">
+                        <button class="send-button"><i class="fas fa-paper-plane"></i></button>
+                    </div>
                 </div>
             </section>
         </main>
     </div>
 </body>
 </html>
-

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillSwap Profile</title>
+    <link rel="stylesheet" href="styles/general.css">
+    <link rel="stylesheet" href="styles/sidebar.css">
+    <link rel="stylesheet" href="styles/navbar.css">
+    <link rel="stylesheet" href="styles/profile.css">
+    <script defer src="scripts/theme.js"></script>
+    <script defer src="scripts/profile.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo" id="sidebar-toggle">
+                <img src="assets/favicon.svg" alt="SkillSwap Logo">
+                <span class="site-name">SkillSwap</span>
+            </div>
+        </div>
+        <ul class="nav-menu">
+            <li class="nav-item active"><a href="dashboard.html"><i class="fas fa-home"></i> Home</a></li>
+            <li class="nav-item"><a href="explore.html"><i class="fas fa-search"></i> Explore</a></li>
+            <li class="nav-item"><a href="messages.html"><i class="fas fa-envelope"></i> Messages</a></li>
+            <li class="nav-item"><a href="#"><i class="fas fa-bookmark"></i> Saved</a></li>
+            <li class="nav-item"><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+        </ul>
+    </aside>
+
+    <div class="main-content">
+        <div class="profile-container">
+            <img src="assets/profile-pic.png" alt="User Profile" class="profile-pic">
+            <div class="profile-details">
+                <h1 class="profile-name">SkillSwap User</h1>
+                <p class="profile-location">New York, USA</p>
+                <p class="profile-stats">112 Followers • 97 Following</p>
+            </div>
+            <div class="profile-actions">
+                <button class="btn follow-btn">Follow</button>
+                <button class="btn message-btn">Message</button>
+                <button class="btn edit-profile-btn">Edit Profile</button>
+            </div>
+        </div>
+
+        <section class="bio-data">
+            <div>About me:</div>
+            <div>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, voluptatum! Earum maiores temporibus repudiandae nostrum, impedit consequuntur qui eius, adipisci aliquid magni, ducimus libero facere officia dolorem! Exercitationem, cumque iure!
+            </div> 
+        </section>
+
+        <section class="skills-container">
+            <div class="skill-column">
+                <h2>Skills You Know</h2>
+                <ul class="skill-list" id="skills-known">
+                    <li>Python</li>
+                    <li>HTML & CSS</li>
+                    <li>MySQL</li>
+                </ul>
+            </div>
+            <div class="skill-column">
+                <h2>Skills to Learn</h2>
+                <ul class="skill-list" id="skills-learning">
+                    <li>JavaScript</li>
+                    <li>React</li>
+                    <li>Tableau</li>
+                </ul>
+            </div>
+            <div class="skill-column">
+                <h2>Recently Learned</h2>
+                <ul class="skill-list" id="skills-recent">
+                    <li>Git & GitLab</li>
+                    <li>Linux Basics</li>
+                    <li>Data Visualization</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
