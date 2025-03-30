@@ -1,102 +1,676 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Edit Profile | SkillSwap</title>
-    <link rel="icon" href="assets/favicon.svg" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles/profile-new.css">
-    <link rel="stylesheet" href="styles/forms.css"> 
-    <script src="scripts/sidebar.js" defer></script>
-</head>
-<body>
-    <div class="dashboard-container">
-        <!-- Sidebar -->
-        <aside class="sidebar">
-            <div class="sidebar-header">
-                <button class="toggle-btn">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
-                <div class="logo">
-                    <img src="assets/favicon.svg" alt="SkillSwap Logo">
-                    <span class="site-name">SkillSwap</span>
-                </div>
-            </div>
-            <ul class="menu">
-                <li data-tooltip="Home">
-                    <a href="index.html"><i class="fa-solid fa-home"></i> <span class="menu-text">Home</span></a>
-                </li>
-                <li data-tooltip="Explore">
-                    <a href="explore.html"><i class="fa-solid fa-magnifying-glass"></i> <span class="menu-text">Explore</span></a>
-                </li>
-                <li data-tooltip="Messages">
-                    <a href="messages.html"><i class="fa-solid fa-envelope"></i> <span class="menu-text">Messages</span></a>
-                </li>
-                <li data-tooltip="Profile">
-                    <a href="profile.html"><i class="fa-solid fa-user"></i> <span class="menu-text">Profile</span></a>
-                </li>
-                <li class="active" data-tooltip="Settings">
-                    <a href="#"><i class="fa-solid fa-gear"></i> <span class="menu-text">Settings</span></a>
-                </li>
-            </ul>
-        </aside>
+    <link rel="icon" href="assets/favicon.svg" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
-        <!-- Main Content -->
-        <main class="main-content">
-            <!-- Topbar -->
-            <header class="topbar">
-                <div class="profile">👤 Alex Johnson</div>
-                <button id="theme-toggle">Toggle Theme</button>
-            </header>
-            
-            <!-- Edit Profile Content -->
-            <section class="content">
-                <h1>Edit Profile</h1>
-                
-                <form class="card">
-                    <div class="form-group">
-                        <label for="name">Full Name</label>
-                        <input type="text" id="name" class="form-control" value="Alex Johnson">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="location">Location</label>
-                        <input type="text" id="location" class="form-control" value="San Francisco, CA">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="bio">Bio</label>
-                        <textarea id="bio" class="form-control" rows="4">Frontend developer with 5 years of experience. Looking to exchange skills in design and backend development.</textarea>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>Profile Picture</label>
-                        <div class="profile-img-upload">
-                            <div class="profile-img-preview">
-                                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="50" cy="40" r="20" fill="var(--primary)"/>
-                                    <circle cx="50" cy="100" r="40" fill="var(--primary)"/>
-                                </svg>
-                            </div>
-                            <button type="button" class="btn btn-secondary">
-                                <i class="fas fa-upload"></i> Upload New Photo
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <div class="form-actions">
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-save"></i> Save Changes
+    
+    <style>
+      /* Form Styles for Edit Profile and New Data */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+textarea.form-control {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.profile-img-upload {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.profile-img-preview {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid var(--border-color);
+    overflow: hidden;
+    background-color: #f0f0f0;
+    display: flex; /* Ensure the preview is centered */
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-img-preview svg {
+    width: 100%;
+    height: 100%;
+    fill: var(--primary);
+    opacity: 0.2;
+}
+
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.category-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+}
+
+.tag-btn {
+    padding: 0.5rem 1rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.tag-btn:hover, .tag-btn.active {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .profile-img-upload {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+}
+
+/* Shared Styles and Variables */
+:root {
+    /* Color Palette */
+    --primary: #3b82f6;
+    --primary-dark: #2563eb;
+    --primary-light: #93c5fd;
+    --secondary: #1e293b;
+    --secondary-dark: #0f172a;
+    --accent: #10b981;
+    --danger: #ef4444;
+    --warning: #f59e0b;
+    --success: #10b981;
+    
+    /* Text Colors */
+    --text-dark: #1e293b;
+    --text-light: #f8fafc;
+    --text-muted: #64748b;
+    
+    /* Backgrounds */
+    --bg-primary: #ffffff;
+    --bg-secondary: #f1f5f9;
+    --bg-dark: #0f172a;
+    
+    /* Borders */
+    --border-radius: 8px;
+    --border-color: #e2e8f0;
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    
+    /* Spacing */
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+}
+
+/* Base Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.5;
+    color: var(--text-dark);
+    background-color: var(--bg-secondary);
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+}
+
+.btn:hover {
+    opacity: 0.8; /* Add hover effect */
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    color: var(--text-light);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+}
+
+.btn-secondary {
+    background-color: var(--secondary);
+    color: var(--text-light);
+}
+
+.btn-secondary:hover {
+    background-color: var(--secondary-dark);
+}
+
+/* Cards */
+.card {
+    background-color: var(--bg-primary);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    padding: var(--space-md);
+    margin-top: 10px;
+    margin-bottom: var(--space-md);
+}
+
+/* Forms */
+.form-control {
+    display: block;
+    width: 100%;
+    padding: var(--space-sm);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    margin-bottom: var(--space-md);
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2); /* Add focus effect */
+}
+
+/* Utility Classes */
+.text-center {
+    text-align: center;
+}
+
+.mt-1 { margin-top: var(--space-xs); }
+.mt-2 { margin-top: var(--space-sm); }
+.mt-3 { margin-top: var(--space-md); }
+.mt-4 { margin-top: var(--space-lg); }
+.mt-5 { margin-top: var(--space-xl); }
+
+/* Responsive Grid */
+.grid {
+    display: grid;
+    gap: var(--space-md);
+}
+
+@media (min-width: 768px) {
+    .grid-cols-2 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Profile Page Styles - Updated */
+.profile-header {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    align-items: flex-start;
+    padding: 1.5rem;
+}
+
+.profile-avatar {
+    text-align: center;
+    min-width: 180px;
+}
+
+.profile-img-placeholder {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid var(--primary);
+    background-color: #f0f0f0;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.profile-img-placeholder svg {
+    width: 100%;
+    height: 100%;
+    fill: var(--primary);
+    opacity: 0.2;
+}
+
+.profile-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.profile-info h2 {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+}
+
+.location {
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.bio {
+    line-height: 1.6;
+    color: var(--text-dark);
+    max-width: 600px;
+    margin-bottom: 1rem;
+}
+
+.skills {
+    display: flex;
+    gap: 0.5rem;
+    margin: 1rem 0;
+    flex-wrap: wrap;
+}
+
+.skill-tag {
+    background: var(--primary);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.875rem;
+}
+
+.profile-nav {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+.profile-nav button {
+    padding: 0.5rem 1rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-muted);
+    font-weight: 500;
+    position: relative;
+}
+
+.profile-nav button.active {
+    color: var(--primary);
+}
+
+.profile-nav button.active::after {
+    content: '';
+    position: absolute;
+    bottom: -0.5rem;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--primary);
+}
+
+.skill-card {
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.skill-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.skill-card h3 {
+    color: var(--primary);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.skill-card p {
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+.skill-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-muted);
+    font-size: 0.875rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .profile-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .profile-actions {
+        flex-direction: row;
+        justify-content: center;
+    }
+    
+    .skills {
+        justify-content: center;
+    }
+    
+    .profile-info {
+        text-align: center;
+    }
+}
+
+      .add-skill-btn {
+        cursor: pointer;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        margin-top: -15px;
+      }
+    </style>
+        cursor: pointer;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        margin-top: -15px;
+      }
+    </style>
+
+
+    <link rel="stylesheet" href="styles/general.css" />
+    <link rel="stylesheet" href="styles/sidebar.css" />
+    <link rel="stylesheet" href="styles/dashboard.css" />
+    <link rel="stylesheet" href="styles/profile-new.css" />
+    <script src="scripts/sidebar.js" defer></script>
+  </head>
+  <body>
+    <div class="dashboard-container">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <div class="logo">
+            <img src="assets/favicon.svg" alt="SkillSwap Logo" />
+            <span class="site-name">SkillSwap</span>
+          </div>
+        </div>
+        <ul class="menu">
+          <li data-tooltip="Home">
+            <a href="index.html"
+              ><i class="fa-solid fa-home"></i>
+              <span class="menu-text">Home</span></a
+            >
+          </li>
+          <li data-tooltip="Explore">
+            <a href="explore.html"
+              ><i class="fa-solid fa-magnifying-glass"></i>
+              <span class="menu-text">Explore</span></a
+            >
+          </li>
+          <li data-tooltip="Messages">
+            <a href="message.html"
+              ><i class="fa-solid fa-envelope"></i>
+              <span class="menu-text">Messages</span></a
+            >
+          </li>
+          <li data-tooltip="Profile">
+            <a href="profile.html"
+              ><i class="fa-solid fa-user"></i>
+              <span class="menu-text">Profile</span></a
+            >
+          </li>
+          <li class="active" data-tooltip="Settings">
+            <a href="#"
+              ><i class="fa-solid fa-gear"></i>
+              <span class="menu-text">Settings</span></a
+            >
+          </li>
+        </ul>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <!-- Topbar -->
+        <header class="topbar">
+          <div class="profile">👤 Alex Johnson</div>
+          <button id="theme-toggle">Toggle Theme</button>
+        </header>
+
+        <!-- Edit Profile Content -->
+        <section class="content">
+          <h1>Edit Profile</h1>
+
+          <form class="card">
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input
+                type="text"
+                id="name"
+                class="form-control"
+                value=""
+                placeholder="Enter your full name"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <input
+                type="text"
+                id="location"
+                class="form-control"
+                value=""
+                placeholder="Enter your location"
+                required
+              />
+              />
+            </div>
+
+            <div class="form-group">
+            <textarea id="bio" class="form-control" rows="2" placeholder="Write a short bio about yourself"></textarea>
+            ></textarea>
+            </div>
+
+            <div style="display: flex; gap: 20px;">
+              <!-- Skills I Can Offer -->
+              <div class="form-group" style="flex: 1;">
+                          class="add-skill-btn"
+                      <label for="skills-offer" style="font-weight: bold;">Skills I can offer</label>
+                      <div style="display: flex; align-items: center;">
+                        <input
+                          type="text"
+                          id="skills-offer"
+                          class="form-control"
+                          style="flex: 1; padding: 8px; border: 1px solid #ddd; border-radius: 4px;"
+                          placeholder="Add a skill"
+                        />
+                        <button
+                          type="button"
+                          style="cursor: pointer; background-color: #007bff; color: white; border: none; border-radius: 4px; font-size: 16px; width: 40px; height: 40px; display: flex; justify-content: center; 
+                          text-align: center;
+                          align-items: center;
+                          margin-top: -15px;"
+                          onclick="addSkill('skills-offer', 'skills-offer-list')"
+                        >
+                          +
                         </button>
-                        <a href="profile.html" class="btn btn-secondary">
-                            <i class="fas fa-times"></i> Cancel
-                        </a>
+                      </div>
+                      <div
+                        id="skills-offer-list"
+                        style="display: flex; flex-wrap: wrap; gap: 10px; padding: 10px; border: 1px solid #ddd; border-radius: 4px; background-color: #f9f9f9;"
+                      ></div>
                     </div>
-                </form>
-            </section>
-        </main>
+
+                    <!-- Skills I Need to Learn -->
+                    <div style="flex: 1; display: flex; flex-direction: column; gap: 10px;">
+                      <label for="skills-learn" style="font-weight: bold;">Skills I need to learn</label>
+                      <div style="display: flex; align-items: center;">
+                        <input
+                          type="text"
+                          id="skills-learn"
+                          class="form-control"
+                          style="flex: 1; padding: 8px; border: 1px solid #ddd; border-radius: 4px;"
+                          placeholder="Add a skill"
+                        />
+                        <button
+                          type="button"
+                          style="cursor: pointer; background-color: #007bff; color: white; border: none; border-radius: 4px; font-size: 16px; width: 40px; height: 40px; display: flex; justify-content: center; 
+                          text-align: center;
+                          align-items: center;
+                          margin-top: -15px;"
+                          onclick="addSkill('skills-learn', 'skills-learn-list')"
+                        >
+                          +</button>
+                      </div>
+                      <script>
+                function addSkill(inputId, listId) {
+                  const input = document.getElementById(inputId);
+                  const list = document.getElementById(listId);
+
+                  if (input.value.trim()) {
+                    const skillValue = input.value.trim().toLowerCase();
+                    const existingSkills = Array.from(list.children).map(skill => 
+                      skill.querySelector('span').textContent.toLowerCase()
+                    );
+
+                    if (!existingSkills.includes(skillValue)) {
+                      const skillContainer = document.createElement('div');
+                      skillContainer.style.display = 'flex';
+                      skillContainer.style.alignItems = 'center';
+                      skillContainer.style.padding = '5px 10px';
+                      skillContainer.style.border = '1px solid #007bff';
+                      skillContainer.style.borderRadius = '4px';
+                      skillContainer.style.backgroundColor = '#e7f3ff';
+                      skillContainer.style.color = '#007bff';
+
+                      const skillText = document.createElement('span');
+                      skillText.textContent = input.value.trim();
+                      skillText.style.marginRight = '10px';
+
+                      const removeBtn = document.createElement('button');
+                      removeBtn.textContent = 'x';
+                      removeBtn.style.padding = '2px 5px';
+                      removeBtn.style.cursor = 'pointer';
+                      removeBtn.style.border = 'none';
+                      removeBtn.style.backgroundColor = '#ff4d4d';
+                      removeBtn.style.color = 'white';
+                      removeBtn.style.borderRadius = '4px';
+                      removeBtn.addEventListener('click', () => skillContainer.remove());
+
+                      skillContainer.appendChild(skillText);
+                      skillContainer.appendChild(removeBtn);
+                      list.appendChild(skillContainer);
+                      input.value = '';
+                    } else {
+                      alert('This skill is already added.');
+                    }
+                  }
+                }
+                    removeBtn.style.border = 'none';
+                    removeBtn.style.backgroundColor = '#ff4d4d';
+                    removeBtn.style.color = 'white';
+                    removeBtn.style.borderRadius = '4px';
+                    removeBtn.addEventListener('click', () => skillContainer.remove());
+
+                    skillContainer.appendChild(skillText);
+                    skillContainer.appendChild(removeBtn);
+                    list.appendChild(skillContainer);
+                    input.value = '';
+                  
+              </script>
+            </div>
+
+            <div class="form-group">
+              <label>Profile Picture</label>
+              <div class="profile-img-upload">
+                <div class="profile-img-preview">
+                  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="40" r="20" fill="var(--primary)" />
+                    <circle cx="50" cy="100" r="40" fill="var(--primary)" />
+                  </svg>
+                </div>
+                <input
+                  type="file"
+                  id="profile-pic"
+                  class="form-control"
+                  accept="image/*"
+                  aria-label="Upload new profile picture"
+                />
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">Save Changes</button>
+              <button type="button" class="btn btn-secondary" onclick="window.location.href='profile.html';">Cancel</button>
+            </div>
+        </section>
+      </main>
     </div>
-</body>
+  </body>
 </html>
