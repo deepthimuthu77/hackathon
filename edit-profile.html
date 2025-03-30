@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile | SkillSwap</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/profile-new.css">
+    <link rel="stylesheet" href="styles/forms.css"> 
+    <script src="scripts/sidebar.js" defer></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <button class="toggle-btn">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <div class="logo">
+                    <img src="assets/favicon.svg" alt="SkillSwap Logo">
+                    <span class="site-name">SkillSwap</span>
+                </div>
+            </div>
+            <ul class="menu">
+                <li data-tooltip="Home">
+                    <a href="index.html"><i class="fa-solid fa-home"></i> <span class="menu-text">Home</span></a>
+                </li>
+                <li data-tooltip="Explore">
+                    <a href="explore.html"><i class="fa-solid fa-magnifying-glass"></i> <span class="menu-text">Explore</span></a>
+                </li>
+                <li data-tooltip="Messages">
+                    <a href="messages.html"><i class="fa-solid fa-envelope"></i> <span class="menu-text">Messages</span></a>
+                </li>
+                <li data-tooltip="Profile">
+                    <a href="profile.html"><i class="fa-solid fa-user"></i> <span class="menu-text">Profile</span></a>
+                </li>
+                <li class="active" data-tooltip="Settings">
+                    <a href="#"><i class="fa-solid fa-gear"></i> <span class="menu-text">Settings</span></a>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Topbar -->
+            <header class="topbar">
+                <div class="profile">👤 Alex Johnson</div>
+                <button id="theme-toggle">Toggle Theme</button>
+            </header>
+            
+            <!-- Edit Profile Content -->
+            <section class="content">
+                <h1>Edit Profile</h1>
+                
+                <form class="card">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" class="form-control" value="Alex Johnson">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="location">Location</label>
+                        <input type="text" id="location" class="form-control" value="San Francisco, CA">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="bio">Bio</label>
+                        <textarea id="bio" class="form-control" rows="4">Frontend developer with 5 years of experience. Looking to exchange skills in design and backend development.</textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Profile Picture</label>
+                        <div class="profile-img-upload">
+                            <div class="profile-img-preview">
+                                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="50" cy="40" r="20" fill="var(--primary)"/>
+                                    <circle cx="50" cy="100" r="40" fill="var(--primary)"/>
+                                </svg>
+                            </div>
+                            <button type="button" class="btn btn-secondary">
+                                <i class="fas fa-upload"></i> Upload New Photo
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save"></i> Save Changes
+                        </button>
+                        <a href="profile.html" class="btn btn-secondary">
+                            <i class="fas fa-times"></i> Cancel
+                        </a>
+                    </div>
+                </form>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
